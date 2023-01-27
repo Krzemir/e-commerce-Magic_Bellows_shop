@@ -14,42 +14,39 @@ model Product {
   id                String  @id @default(uuid())
   name              String
   price             Int
-  description       String
+  description       String @db.VarChar(1000)
   shortDescription  String
   images            Image[]
-  orderedProducts   OrderedProduct[] 
+  orders            Order[]
+
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Order {
-  id              String  @id @default(uuid())
-
-  client          String
-  address         String
-
-  orderedProducts OrderedProduct[]
-
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-}
-
-
 model Image {
   id              String  @id @default(uuid())
-  fileName        String
-  productId       String @unique
-  product         Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  fileName        String @unique
+  
+  product         Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId       String?
 }
 
-model OrderedProduct {
-  id              String  @id @default(uuid())
-  orderId         String?
-  order           Order? @relation(fields: [orderId], references: [id], onDelete: SetNull)
-  productId       String?
-  product         Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
-  quantity        Int
-  comment         String
+model Order {
+  id String  @id @default(uuid())
   
+  client String
+  address String
+
+  product         Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productId       String?
+
+  quantity        Int
+
+  comment         String?
+ 
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+

@@ -1,6 +1,7 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Order } from '@prisma/client';
 import { PrismaService } from 'src/shared/services/prisma.service';
+
 
 @Injectable()
 export class OrdersService {
@@ -22,7 +23,6 @@ export class OrdersService {
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
   ): Promise<Order> {
     const { productId, ...otherData } = orderData;
-
     return await this.prismaService.order.create({
       data: {
         ...otherData,

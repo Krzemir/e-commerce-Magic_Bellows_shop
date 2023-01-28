@@ -28,25 +28,22 @@ model Image {
   id              String  @id @default(uuid())
   fileName        String @unique
   
-  product         Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
-  productId       String?
+  product         Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId       String   
 }
 
 model Order {
   id String  @id @default(uuid())
   
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productId String?
+
+  quantity  Int
+
   client String
   address String
 
-  product         Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
-  productId       String?
-
-  quantity        Int
-
-  comment         String?
- 
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
-

@@ -1,3 +1,5 @@
+import { API_URL } from '../config';
+
 //selectors
 export const getProducts = (state) => state.products;
 
@@ -12,7 +14,7 @@ export const loadProducts = (payload) => ({ type: LOAD_PRODUCTS, payload });
 //API requests
 export const fetchProducts = () => {
   return (dispatch) => {
-    fetch('http://localhost:8000/api/products')
+    fetch(API_URL + '/api/products')
       .then((res) => res.json())
       .then((products) => dispatch(loadProducts(products)));
   };

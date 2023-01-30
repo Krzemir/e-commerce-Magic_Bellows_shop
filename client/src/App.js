@@ -1,26 +1,19 @@
-import { getProducts } from './redux/productRedux';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchProducts } from './redux/productRedux';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/pages/home/Home';
+import Product from './components/pages/product/Product';
+import Cart from './components/pages/cart/Cart';
+import Checkout from './components/pages/checkout/Checkout';
+import OrderDetails from './components/pages/order/Order';
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => dispatch(fetchProducts()), [dispatch]);
-
-  const products = useSelector(getProducts);
-  console.log(products);
   return (
-    <div className="App">
-      <h1>Products</h1>
-      {products.map((product) => (
-        <div key={product.id}>
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-        </div>
-      ))}
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products/:id" element={<Product />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/order/:id" element={<OrderDetails />} />
+    </Routes>
   );
 }
 

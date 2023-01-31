@@ -7,7 +7,9 @@ export class ProductsService {
   constructor(private prismaService: PrismaService) { }
 
   getAll(): Promise<Product[]> {
-    return this.prismaService.product.findMany();
+    return this.prismaService.product.findMany({
+      include: { images: true },
+    });
   }
 
   getById(id: Product['id']): Promise<Product> | null {

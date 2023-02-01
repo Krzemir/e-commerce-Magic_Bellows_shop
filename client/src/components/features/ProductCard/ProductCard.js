@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 import Button from '../../common/Button/Button';
 import { IMGS_URL } from '../../../config';
@@ -15,17 +16,16 @@ const ProductCard = (props) => {
       <div className={styles.name}>
         <h5>{name}</h5>
       </div>
-      <div
-        className={styles.photo}
-        // style={{ backgroundImage: `url(${IMGS_URL + mainImage})` }}
-      >
+      <div className={styles.photo}>
         <img src={IMGS_URL + mainImage} alt={name} />
       </div>
       <div className={styles.buttons}>
-        <Button id={id}>
-          <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>More
-          details
-        </Button>
+        <NavLink to={`/products/${id}`}>
+          <Button>
+            <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>More
+            details
+          </Button>
+        </NavLink>
         <Button>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
           Add to cart

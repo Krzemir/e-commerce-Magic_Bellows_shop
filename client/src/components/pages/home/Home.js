@@ -15,8 +15,8 @@ const Home = () => {
   //if (!products) return null;
   return (
     <>
-      {/* <Header /> */}
-      <ProductsList products={products} />;
+      <Header />
+      <ProductsList products={products} />
     </>
   );
 };

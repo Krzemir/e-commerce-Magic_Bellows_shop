@@ -9,7 +9,7 @@ const Header = () => {
       />
       <div className={styles.headerContent}>
         <h1>Need something special?</h1>
-        <p>Look, we have it all!</p>
+        <p>We have it all!</p>
       </div>
     </header>
   );

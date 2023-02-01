@@ -3,6 +3,8 @@ import { fetchProducts } from '../../../redux/productRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import ProductCard from '../../features/ProductCard/ProductCard';
+import ProductsList from '../../features/ProductsList/ProductsList';
+import Header from '../../layout/Header/Header';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -10,13 +12,12 @@ const Home = () => {
   useEffect(() => dispatch(fetchProducts()), [dispatch]);
   const products = useSelector(getProducts);
 
+  //if (!products) return null;
   return (
-    <div className="root">
-      <h1>Products</h1>
-      {products.map((product) => (
-        <ProductCard key={product.id} {...product} />
-      ))}
-    </div>
+    <>
+      {/* <Header /> */}
+      <ProductsList products={products} />;
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 @import './settings.scss';
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -20,4 +22,4 @@ body {
   margin: 0 auto;
 }
 
-@import "./typography.scss";
+@import './typography.scss';

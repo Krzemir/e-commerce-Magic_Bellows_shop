@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.setGlobalPrefix('api');
 
-  app.use('/public', express.static(join(process.cwd(), 'public')));
+  app.use('/uploads', express.static(join(process.cwd(), 'uploads')));
 
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);

@@ -7,12 +7,8 @@
 .navWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-
-// .icon {
-//   font-size: 24px;
-//   padding-top: 8px;
-// }
 
 .navBar__links {
   list-style-type: none;
@@ -20,15 +16,51 @@
   li {
     display: inline;
     text-align: center;
+    font-size: 18px;
     padding: 16px;
     font-weight: bold;
 
     a {
-      color: $color-light;
+      color: $color-light-red;
       text-decoration: none;
-    }
-    .linkActive {
-      color: $color-warning;
+      &:hover {
+        color: $color-reddish;
+      }
     }
   }
+}
+
+.navBar__logo {
+  display: flex;
+  flex-wrap: wrap;
+
+  h2 {
+    font-size: 40px;
+    font-family: $font-logo;
+    padding-top: 8px;
+    color: $color-gold;
+    text-decoration: none;
+    margin-left: $base-size;
+    &:hover {
+      color: $color-reddish;
+      scale: 1.1;
+      transition: $transition;
+      cursor: pointer;
+    }
+  }
+
+  h3 {
+    font-family: $font-title;
+    font-size: 22px;
+    font-style: italic;
+    padding-top: 31px;
+    color: $color-light-red;
+    text-decoration: none;
+    margin-left: $base-size;
+  }
+
+  // &:hover {
+  //   color: $color-light;
+  //   cursor: pointer;
+  // }
 }

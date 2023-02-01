@@ -7,14 +7,15 @@ const NavBar = () => {
       <Container>
         <div className={styles.navWrapper}>
           <div className={styles.navBar__logo}>
-            <h2>Logo</h2>
+            <h2>Magic Bellows</h2>
+            <h3>The finest accordions you can get</h3>
           </div>
           <ul className={styles.navBar__links}>
-            <li>
+            {/* <li>
               <a href="/" className={styles.navBar__link}>
                 Home
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="/cart" className={styles.navBar__link}>
                 Cart

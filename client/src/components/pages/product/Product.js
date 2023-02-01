@@ -26,6 +26,11 @@ const Product = () => {
   const { name, description, shortDescription, price, images } = product || {};
   const mainImage = getMainImage(images);
 
+  const handleClick = (e) => {
+    //e.preventDefault();
+    console.log('clicked');
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.product__name}>
@@ -42,7 +47,7 @@ const Product = () => {
       <div className={styles.product__buy}>
         <p>{price} EUR</p>
 
-        <Button>Add to cart</Button>
+        <Button onClick={handleClick}>Add to cart</Button>
       </div>
       <div className={styles.product__gallery}>
         {images.map((image) => (

@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 import Button from '../../common/Button/Button';
@@ -10,6 +11,10 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const ProductCard = (props) => {
   const { id, name, price, shortDescription, images } = props;
   const mainImage = getMainImage(images);
+
+  const handleCLick = () => {
+    console.log('clicked');
+  };
 
   return (
     <div className={styles.card}>
@@ -26,7 +31,7 @@ const ProductCard = (props) => {
             details
           </Button>
         </NavLink>
-        <Button>
+        <Button onClick={handleCLick}>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
           Add to cart
         </Button>

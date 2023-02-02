@@ -1,32 +1,28 @@
 @import '../../../styles/settings.scss';
 
-.navBar {
-  background-color: darken($color-dark, 3%);
-}
-
 .navWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navBar__links {
-  list-style-type: none;
+.navLink {
+  text-decoration: none;
+  color: $color-light-red;
+  &:hover {
+    color: $color-reddish;
+    transition: $transition;
+  }
+}
 
+.navBar__links {
   li {
     display: inline;
     text-align: center;
-    font-size: 18px;
+    font-size: $base-size * 1.5;
     padding: 16px;
     font-weight: bold;
-
-    a {
-      color: $color-light-red;
-      text-decoration: none;
-      &:hover {
-        color: $color-reddish;
-      }
-    }
+    color: $color-light-red;
   }
 }
 

@@ -1,0 +1,26 @@
+@import '../../../styles/global.scss';
+
+.product__buy__quantity {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: ($base-size * 2);
+
+  input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    padding-bottom: 10px;
+
+    background-color: transparent;
+    font-size: ($base-size * 2);
+    color: $color-light;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

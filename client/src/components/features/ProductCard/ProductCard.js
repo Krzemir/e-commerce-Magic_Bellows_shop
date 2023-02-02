@@ -7,13 +7,18 @@ import { getMainImage } from '../../../utils/getMainImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../redux/cartRedux';
 
 const ProductCard = (props) => {
   const { id, name, price, shortDescription, images } = props;
   const mainImage = getMainImage(images);
 
-  const handleCLick = () => {
-    console.log('clicked');
+  const dispatch = useDispatch();
+
+  const handleCLick = (e) => {
+    e.preventDefault();
+    dispatch(addToCart({ id, name, price, quantity: 1 }));
   };
 
   return (
@@ -31,10 +36,12 @@ const ProductCard = (props) => {
             details
           </Button>
         </NavLink>
-        <Button onClick={handleCLick}>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
-          Add to cart
-        </Button>
+        <div onClick={handleCLick}>
+          <Button>
+            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
+            Add to cart
+          </Button>
+        </div>
       </div>
       <div className={styles.content}>
         <div className={styles.shortDescription}>

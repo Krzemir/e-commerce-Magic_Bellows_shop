@@ -15,8 +15,6 @@ const Product = () => {
   const [isLoading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
 
-  console.log(quantity);
-
   const dispatch = useDispatch();
 
   const handleClick = (e) => {

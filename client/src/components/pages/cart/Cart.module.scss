@@ -39,6 +39,8 @@
 
 .cart__quantity {
   grid-area: quantity;
+  font-size: $base-size * 1.5;
+  align-self: center;
 }
 
 .cart__total {

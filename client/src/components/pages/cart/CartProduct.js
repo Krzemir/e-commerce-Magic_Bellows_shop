@@ -5,45 +5,64 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
 
 const CartProduct = ({ props }) => {
-  const { name, price, quantity } = props[0];
+  const { name, price, quantity, id } = props[0];
   const handleOrder = props[1];
 
   const [newQuantity, setNewQuantity] = useState(quantity);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(quantity * price);
   const [comment, setComment] = useState('');
   const [productOrder, setProductOrder] = useState({
+    id,
     name,
-    price,
     quantity,
+    price,
     comment,
+    totalPrice,
   });
-  //console.log('productOrder', productOrder);
-  console.log('newQuantity', newQuantity);
+
   //console.log('comment', comment);
+  //console.log('productOrder', productOrder);
 
   useEffect(() => {
-    handleCartProduct();
+    // handleCartProduct();
+
+    handleOrder(productOrder);
+  }, [productOrder]);
+
+  useEffect(() => {
+    setTotalPrice(newQuantity * price);
+    //console.log('setProductOrder quatity', newQuantity);
+    setProductOrder({
+      id: id,
+      name: name,
+      quantity: newQuantity,
+      price: price,
+      comment: comment,
+      totalPrice: totalPrice,
+    });
   }, [newQuantity]);
 
-  const handleCartProduct = () => {
-    setTotalPrice(newQuantity * price);
-    setProductOrder({ name, price, quantity: newQuantity });
-  };
+  // const handleCartProduct = () => {
+  //   setTotalPrice(newQuantity * price);
+
+  //   //console.log('HCart productOrder', productOrder);
+  // };
 
   const handlePlus = (e) => {
     e.preventDefault();
     if (newQuantity < 10) {
       setNewQuantity(newQuantity + 1);
-      handleOrder(productOrder);
     }
+    //setTotalPrice(newQuantity * price);
+    // console.log('newQuantity', newQuantity);
   };
 
   const handleMinus = (e) => {
     e.preventDefault();
     if (newQuantity > 1) {
       setNewQuantity(newQuantity - 1);
-      handleOrder(productOrder);
     }
+    //setTotalPrice(newQuantity * price);
   };
 
   return (
@@ -61,15 +80,9 @@ const CartProduct = ({ props }) => {
           </Button>
         </div>
 
-        <input
-          type="number"
-          id="quantity"
-          name="quantity"
-          min="1"
-          max="10"
-          value={newQuantity}
-          onChange={(e) => setNewQuantity(e.target.value)}
-        />
+        <div className={style.cart__quantity}>
+          <h3>{newQuantity}</h3>
+        </div>
         <div onClick={handlePlus}>
           <Button>
             <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>

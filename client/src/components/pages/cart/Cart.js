@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-import { getCart } from '../../../redux/cartRedux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCart, updateCart } from '../../../redux/cartRedux';
 import style from './Cart.module.scss';
 import CartProduct from './CartProduct';
 import Button from '../../common/Button/Button';
@@ -9,32 +9,28 @@ const Cart = () => {
   const [cart, setCart] = useState(useSelector(getCart));
   const [orderPrice, setOrderPrice] = useState(0);
 
-  //console.log('CART', cart);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     handleOrderPrice();
-  }, [cart]);
+  }, []);
 
   const handleOrderPrice = () => {
-    let tempPrice = orderPrice;
-    cart.forEach((product) => {
-      tempPrice += product.price * product.quantity;
+    // POTEM
+    let tempPrice = 0;
+    cart.forEach((productOrder) => {
+      //console.log('productOrder', productOrder);
+      tempPrice += productOrder.totalPrice;
     });
     setOrderPrice(tempPrice);
   };
 
   const handleOrder = (product) => {
-    handleOrderPrice();
-    console.log('newProduct', product);
-    // cart.map((item) => {
-    //   if (item.id === product.id) {
-
-    //     setCart((prev) => [...prev, product]);
-    //   } else {
-    //     return item;
-    //   }
-    // }
-    // );
+    cart.map((item) => {
+      if (item.id === product.id) {
+        dispatch(updateCart(product));
+      }
+    });
   };
 
   return (

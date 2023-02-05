@@ -6,32 +6,42 @@ import Button from '../../common/Button/Button';
 import { useState, useEffect } from 'react';
 
 const Cart = () => {
-  const [cart, setCart] = useState(useSelector(getCart));
+  //const [cart, setCart] = useState([]);
   const [orderPrice, setOrderPrice] = useState(0);
+  const [finalCart, setFinalCart] = useState([]);
 
-  const dispatch = useDispatch();
+  const cart = useSelector(getCart);
+
+  console.log('cart', cart);
 
   useEffect(() => {
-    handleOrderPrice();
+    setFinalCart(cart);
   }, []);
 
-  const handleOrderPrice = () => {
-    // POTEM
-    let tempPrice = 0;
-    cart.forEach((productOrder) => {
-      //console.log('productOrder', productOrder);
-      tempPrice += productOrder.totalPrice;
-    });
-    setOrderPrice(tempPrice);
-  };
+  console.log('finalCart', finalCart);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   handleOrderPrice();
+  // }, []);
 
   const handleOrder = (product) => {
-    cart.map((item) => {
-      if (item.id === product.id) {
-        dispatch(updateCart(product));
-      }
-    });
+    //console.log('product', product);
+    const productToUpdate = finalCart.findIndex(
+      (item) => item.id === product.id,
+    );
+    setFinalCart([(finalCart[productToUpdate] = product)]);
+    dispatch(updateCart(finalCart));
   };
+
+  // const handleOrder = (product) => {
+  //   console.log('product', product);
+  //   cart.map((item) => {
+  //     if (item.id === product.id) {
+  //       dispatch(updateCart(product));
+  //     }
+  //   });
+  // };
 
   return (
     <div className={style.cart}>

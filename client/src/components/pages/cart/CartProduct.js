@@ -9,7 +9,7 @@ const CartProduct = ({ props }) => {
   const handleOrder = props[1];
 
   const [newQuantity, setNewQuantity] = useState(quantity);
-  const [totalPrice, setTotalPrice] = useState(quantity * price);
+  const [totalPrice, setTotalPrice] = useState(newQuantity * price);
   const [comment, setComment] = useState('');
   const [productOrder, setProductOrder] = useState({
     id,
@@ -20,18 +20,12 @@ const CartProduct = ({ props }) => {
     totalPrice,
   });
 
-  //console.log('comment', comment);
-  //console.log('productOrder', productOrder);
-
   useEffect(() => {
-    // handleCartProduct();
-
     handleOrder(productOrder);
   }, [productOrder]);
 
   useEffect(() => {
     setTotalPrice(newQuantity * price);
-    //console.log('setProductOrder quatity', newQuantity);
     setProductOrder({
       id: id,
       name: name,
@@ -42,19 +36,11 @@ const CartProduct = ({ props }) => {
     });
   }, [newQuantity]);
 
-  // const handleCartProduct = () => {
-  //   setTotalPrice(newQuantity * price);
-
-  //   //console.log('HCart productOrder', productOrder);
-  // };
-
   const handlePlus = (e) => {
     e.preventDefault();
     if (newQuantity < 10) {
       setNewQuantity(newQuantity + 1);
     }
-    //setTotalPrice(newQuantity * price);
-    // console.log('newQuantity', newQuantity);
   };
 
   const handleMinus = (e) => {
@@ -62,7 +48,6 @@ const CartProduct = ({ props }) => {
     if (newQuantity > 1) {
       setNewQuantity(newQuantity - 1);
     }
-    //setTotalPrice(newQuantity * price);
   };
 
   return (

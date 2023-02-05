@@ -17,18 +17,19 @@ const cartReducer = (statePart = [], action) => {
       return [...statePart, action.payload];
     }
     case UPDATE_CART: {
-      return statePart.map((item) => {
-        if (item.id === action.payload.id) {
-          return {
-            ...item,
-            quantity: action.payload.quantity,
-            totalPrice: action.payload.totalPrice,
-            comment: action.payload.comment,
-          };
-        } else {
-          return item;
-        }
-      });
+      //return [...statePart, action.payload];
+      // return statePart.map((item) => {
+      //   if (item.id === action.payload.id) {
+      //     return {
+      //       ...item,
+      //       quantity: action.payload.quantity,
+      //       totalPrice: action.payload.totalPrice,
+      //       comment: action.payload.comment,
+      //     };
+      //   } else {
+      //     return item;
+      //   }
+      // });
     }
     default:
       return statePart;

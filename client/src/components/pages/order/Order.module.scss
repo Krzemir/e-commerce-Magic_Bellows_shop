@@ -1,0 +1,73 @@
+@import '../../../styles/global.scss';
+
+.container {
+  border: 2px solid $color-reddish;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 10px;
+  text-align: center;
+
+  font-family: $font-title;
+}
+
+.order__title {
+  font-family: $font-title;
+
+  text-align: end;
+  margin: 2rem;
+}
+
+.order_list__title {
+  font-family: $font-title;
+  font-size: $base-size * 1.5;
+  margin-bottom: 10px;
+}
+
+.order_list {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.order__comment {
+  font-size: $base-size;
+
+  text-align: left;
+}
+
+.order_product__wrapper {
+  margin-top: 10px;
+  border-bottom: 1px solid $color-reddish;
+}
+
+.order_client {
+  font-family: $font-title;
+  font-size: $base-size * 1.5;
+  margin: 10px;
+  border: 1px solid $color-reddish;
+  border-radius: 15px;
+  h3 {
+    padding: $base-size;
+  }
+}
+
+.order__total {
+  font-size: $base-size * 1.5;
+  margin-top: 10px;
+  text-align: end;
+}
+
+.order__form__button {
+  margin-top: 20px;
+}
+
+.order__thank {
+  font-family: $font-title;
+  font-size: $base-size * 2;
+
+  text-align: center;
+  margin: 2rem;
+}

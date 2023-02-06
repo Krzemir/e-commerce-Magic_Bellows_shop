@@ -18,7 +18,7 @@ const ProductCard = (props) => {
 
   const handleCLick = (e) => {
     e.preventDefault();
-    dispatch(addToCart({ id, name, price, quantity: 1 }));
+    dispatch(addToCart({ id, name, price, quantity: 1, totalPrice: price }));
   };
 
   return (

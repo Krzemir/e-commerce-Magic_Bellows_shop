@@ -58,8 +58,6 @@ const CartProduct = ({ props }) => {
 
   const removeProduct = (e, id) => {
     e.preventDefault();
-    console.log('removeProduct', id);
-
     dispatch(deleteFromCart(id));
   };
 

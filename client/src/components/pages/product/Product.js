@@ -14,18 +14,16 @@ const Product = () => {
   const [product, setProduct] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(0);
+  console.log('totalPrice', totalPrice);
 
   const dispatch = useDispatch();
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(addToCart({ id, name, price, quantity }));
-  };
 
   const handlePlus = (e) => {
     e.preventDefault();
     if (quantity < 10) {
       setQuantity(quantity + 1);
+      setTotalPrice(quantity * price);
     }
   };
 
@@ -33,6 +31,7 @@ const Product = () => {
     e.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      setTotalPrice(quantity * price);
     }
   };
 
@@ -42,6 +41,7 @@ const Product = () => {
       .then((data) => {
         setProduct(data);
         setLoading(false);
+        setTotalPrice(quantity * data.price);
       });
   }, [id]);
 
@@ -51,6 +51,11 @@ const Product = () => {
 
   const { name, description, shortDescription, price, images } = product || {};
   const mainImage = getMainImage(images);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(addToCart({ id, name, price, quantity, totalPrice }));
+  };
 
   return (
     <div className={styles.container}>

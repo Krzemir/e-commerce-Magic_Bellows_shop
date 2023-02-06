@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 import Button from '../../common/Button/Button';
@@ -7,18 +7,29 @@ import { getMainImage } from '../../../utils/getMainImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../redux/cartRedux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, getCart } from '../../../redux/cartRedux';
+import { useState } from 'react';
 
 const ProductCard = (props) => {
   const { id, name, price, shortDescription, images } = props;
   const mainImage = getMainImage(images);
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  const cart = useSelector(getCart);
+
+  useEffect(() => {
+    if (cart.find((item) => item.id === id)) {
+      setAddedToCart(true);
+    }
+  }, [cart]);
 
   const dispatch = useDispatch();
 
   const handleCLick = (e) => {
     e.preventDefault();
     dispatch(addToCart({ id, name, price, quantity: 1, totalPrice: price }));
+    setAddedToCart(true);
   };
 
   return (
@@ -39,7 +50,7 @@ const ProductCard = (props) => {
         <div onClick={handleCLick}>
           <Button>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
-            Add to cart
+            {addedToCart ? 'Added to cart' : 'Add to cart'}
           </Button>
         </div>
       </div>

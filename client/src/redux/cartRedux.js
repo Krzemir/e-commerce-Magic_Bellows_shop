@@ -21,7 +21,6 @@ export const clearCart = (payload) => ({ type: CLEAR_CART, payload });
 const cartReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_TO_CART: {
-      console.log('action.payload', action.payload);
       if (statePart.some((product) => product.id === action.payload.id)) {
         return statePart.map((product) => {
           if (product.id === action.payload.id) {
@@ -39,7 +38,6 @@ const cartReducer = (statePart = [], action) => {
       }
     }
     case UPDATE_CART: {
-      // console.log('action.payload', action.payload);
       return statePart.map((product) => {
         if (product.id === action.payload.id) {
           return {

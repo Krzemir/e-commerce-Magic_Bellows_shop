@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addOrder } from '../../../redux/orderRedux';
+//import { addOrder } from '../../../redux/orderRedux';
+import { sendOrderRequest } from '../../../redux/orderRedux';
 import { getCart } from '../../../redux/cartRedux';
 import { useEffect, useState } from 'react';
 import Button from '../../common/Button/Button';
@@ -27,12 +28,23 @@ const Checkout = () => {
     const order = {
       client: name,
       address: address,
-      cart: cart,
+      products: cart,
       totalToPay: totalToPay,
     };
 
-    dispatch(addOrder(order));
+    dispatch(sendOrderRequest(order));
   };
+
+  // const handleOrder = () => {
+  //   const order = {
+  //     client: name,
+  //     address: address,
+  //     products: cart,
+  //     totalToPay: totalToPay,
+  //   };
+
+  //   dispatch(addOrder(order));
+  // };
 
   return (
     <div className={styles.checkout}>

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
 import { deleteFromCart } from '../../../redux/cartRedux';
+import { updateCart } from '../../../redux/cartRedux';
 
 const CartProduct = ({ props }) => {
   const { name, price, quantity, id } = props[0];
@@ -40,7 +41,7 @@ const CartProduct = ({ props }) => {
       comment: comment,
       totalPrice: totalPrice,
     });
-  }, [newQuantity]);
+  }, [newQuantity, comment]);
 
   const handlePlus = (e) => {
     e.preventDefault();

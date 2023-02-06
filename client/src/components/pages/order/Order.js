@@ -15,6 +15,9 @@ const Order = () => {
     dispatch(clearOrder());
   };
 
+  if (!order) return null;
+  console.log(order);
+
   return (
     <div className={styles.order}>
       <div className={styles.order__title}>
@@ -25,7 +28,7 @@ const Order = () => {
       </div>
       <div className={styles.container}>
         <div>
-          {order.cart.map((product) => (
+          {order.products.map((product) => (
             <div key={product.id} className={styles.order_product__wrapper}>
               <div className={styles.order_list}>
                 <h3>{product.name}</h3>
@@ -51,7 +54,8 @@ const Order = () => {
         <h3>Address: {order.address} </h3>
       </div>
       <div className={styles.order__thank}>
-        <h3>Thank you for your order!</h3>
+        <h3>Your order has been placed</h3>
+        <h3>Thank you for shopping with us!</h3>
       </div>
 
       <div className={styles.order__form__button} onClick={resetOrderCart}>

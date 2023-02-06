@@ -20,7 +20,10 @@ const CartProduct = ({ props }) => {
     totalPrice,
   });
 
+  // console.log('productOrder render', productOrder.quantity);
+
   useEffect(() => {
+    // console.log('productOrder', productOrder.quantity);
     handleOrder(productOrder);
   }, [productOrder]);
 
@@ -59,7 +62,7 @@ const CartProduct = ({ props }) => {
         <h3>{price} EUR</h3>
       </div>
       <div className={style.product__buy__quantity}>
-        <div onClick={handleMinus}>
+        <div onClick={(e) => handleMinus(e)}>
           <Button>
             <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
           </Button>
@@ -68,7 +71,7 @@ const CartProduct = ({ props }) => {
         <div className={style.cart__quantity}>
           <h3>{newQuantity}</h3>
         </div>
-        <div onClick={handlePlus}>
+        <div onClick={(e) => handlePlus(e)}>
           <Button>
             <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
           </Button>

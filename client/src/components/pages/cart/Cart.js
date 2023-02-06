@@ -6,42 +6,29 @@ import Button from '../../common/Button/Button';
 import { useState, useEffect } from 'react';
 
 const Cart = () => {
-  //const [cart, setCart] = useState([]);
   const [orderPrice, setOrderPrice] = useState(0);
-  const [finalCart, setFinalCart] = useState([]);
 
   const cart = useSelector(getCart);
 
   console.log('cart', cart);
 
-  useEffect(() => {
-    setFinalCart(cart);
-  }, []);
-
-  console.log('finalCart', finalCart);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   handleOrderPrice();
-  // }, []);
+  useEffect(() => {
+    handleOrderPrice();
+  }, [cart]);
 
-  const handleOrder = (product) => {
-    //console.log('product', product);
-    const productToUpdate = finalCart.findIndex(
-      (item) => item.id === product.id,
-    );
-    setFinalCart([(finalCart[productToUpdate] = product)]);
-    dispatch(updateCart(finalCart));
+  const handleOrderPrice = () => {
+    let price = 0;
+    cart.forEach((product) => {
+      price += product.price * product.quantity;
+    });
+    setOrderPrice(price);
   };
 
-  // const handleOrder = (product) => {
-  //   console.log('product', product);
-  //   cart.map((item) => {
-  //     if (item.id === product.id) {
-  //       dispatch(updateCart(product));
-  //     }
-  //   });
-  // };
+  const handleOrder = (product) => {
+    dispatch(updateCart(product));
+  };
 
   return (
     <div className={style.cart}>

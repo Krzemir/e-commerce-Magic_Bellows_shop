@@ -27,4 +27,8 @@
   font-size: ($base-size * 2.5);
   color: $color-gold;
   padding: $base-size;
+  h1,
+  p {
+    text-shadow: 0 0 5px $color-reddish;
+  }
 }

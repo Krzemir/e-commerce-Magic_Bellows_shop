@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, IsUUID, Min } from 'class-validator';
+import { IsJSON, IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
 
 export class CreateOrderDTO {
   @IsNotEmpty()
@@ -10,16 +10,10 @@ export class CreateOrderDTO {
   address: string;
 
   @IsNotEmpty()
-  @IsUUID()
-  @IsString()
-  productId: string;
+  products: Array<object>;
 
   @IsNotEmpty()
   @IsNumber()
   @Min(1)
-  quantity: number;
-
-  @IsNotEmpty()
-  @IsString()
-  comment: string;
+  totalToPay: number;
 }

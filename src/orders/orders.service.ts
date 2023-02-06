@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { Order } from '@prisma/client';
 import { PrismaService } from 'src/shared/services/prisma.service';
 
-
 @Injectable()
 export class OrdersService {
   constructor(private prismaService: PrismaService) { }
@@ -22,14 +21,28 @@ export class OrdersService {
   public async create(
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
   ): Promise<Order> {
-    const { productId, ...otherData } = orderData;
+    console.log(orderData);
     return await this.prismaService.order.create({
       data: {
-        ...otherData,
-        product: {
-          connect: { id: productId },
-        },
+        client: orderData.client,
+        address: orderData.address,
+        totalToPay: orderData.totalToPay,
+        products: orderData.products,
       },
     });
   }
+
+  // public async create(
+  //   orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
+  // ): Promise<Order> {
+  //   const { productId, ...otherData } = orderData;
+  //   return await this.prismaService.order.create({
+  //     data: {
+  //       ...otherData,
+  //       product: {
+  //         connect: { id: productId },
+  //       },
+  //     },
+  //   });
+  // }
 }

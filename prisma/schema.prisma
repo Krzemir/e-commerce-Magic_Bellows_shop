@@ -16,9 +16,7 @@ model Product {
   price             Int
   description       String @db.VarChar(1000)
   shortDescription  String
-  images            Image[]
-  orders            Order[]
-
+  images            Image[]  
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -35,11 +33,9 @@ model Image {
 model Order {
   id String  @id @default(uuid())
   
-  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
-  productId String?
+  products  Json
 
-  quantity  Int
-
+  totalToPay     Int
   client String
   address String
 

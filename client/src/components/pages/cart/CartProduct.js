@@ -1,8 +1,10 @@
 import style from './Cart.module.scss';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
+import { deleteFromCart } from '../../../redux/cartRedux';
 
 const CartProduct = ({ props }) => {
   const { name, price, quantity, id } = props[0];
@@ -20,6 +22,7 @@ const CartProduct = ({ props }) => {
     totalPrice,
   });
 
+  const dispatch = useDispatch();
   // console.log('productOrder render', productOrder.quantity);
 
   useEffect(() => {
@@ -53,6 +56,13 @@ const CartProduct = ({ props }) => {
     }
   };
 
+  const removeProduct = (e, id) => {
+    e.preventDefault();
+    console.log('removeProduct', id);
+
+    dispatch(deleteFromCart(id));
+  };
+
   return (
     <div className={style.container}>
       <div className={style.cart__name}>
@@ -79,6 +89,9 @@ const CartProduct = ({ props }) => {
       </div>
       <div className={style.cart__total}>
         <h3>{totalPrice} EUR</h3>
+      </div>
+      <div className={style.cart__delete} onClick={(e) => removeProduct(e, id)}>
+        <Button>remove from cart</Button>
       </div>
       <div className={style.cart__comment}>
         <form>

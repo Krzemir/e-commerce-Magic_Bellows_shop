@@ -10,7 +10,7 @@ const Cart = () => {
 
   const cart = useSelector(getCart);
 
-  console.log('cart', cart);
+  //console.log('cart', cart);
 
   const dispatch = useDispatch();
 

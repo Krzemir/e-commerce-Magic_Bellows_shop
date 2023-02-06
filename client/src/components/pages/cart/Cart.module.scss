@@ -8,11 +8,11 @@
   text-align: center;
   display: grid;
   font-family: $font-title;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
   grid-template-rows: 1fr 0.5fr;
   grid-template-areas:
-    'name price quantity total'
-    'comment comment comment comment';
+    'name price quantity total delete'
+    'comment comment comment comment delete';
   // 'totalPrice totalPrice totalPrice totalPrice'
   // 'checkout checkout checkout checkout';
   grid-gap: 0.5rem;
@@ -110,6 +110,13 @@
   }
 }
 
+.cart__delete {
+  grid-area: delete;
+  align-self: start;
+  font-size: $base-size * 1.5;
+  padding-top: 10px;
+}
+
 .cart__submit {
   text-align: end;
 }
@@ -124,7 +131,8 @@
       'price'
       'quantity'
       'total'
-      'comment';
+      'comment'
+      'delete';
   }
 
   .product__buy__quantity {

@@ -4,6 +4,7 @@ import { clearCart } from '../../../redux/cartRedux';
 import styles from './Order.module.scss';
 import Button from '../../common/Button/Button';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Order = () => {
   const order = useSelector(getOrder);
@@ -15,8 +16,7 @@ const Order = () => {
     dispatch(clearOrder());
   };
 
-  if (!order) return null;
-  console.log(order);
+  if (order == null) return null;
 
   return (
     <div className={styles.order}>

@@ -24,10 +24,8 @@ const CartProduct = ({ props }) => {
   });
 
   const dispatch = useDispatch();
-  // console.log('productOrder render', productOrder.quantity);
 
   useEffect(() => {
-    // console.log('productOrder', productOrder.quantity);
     handleOrder(productOrder);
   }, [productOrder]);
 

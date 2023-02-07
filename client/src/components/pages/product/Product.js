@@ -15,7 +15,6 @@ const Product = () => {
   const [isLoading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
-  console.log('totalPrice', totalPrice);
 
   const dispatch = useDispatch();
 

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Button from '../../common/Button/Button';
 
 import styles from './Checkout.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const [name, setName] = useState('');
@@ -14,6 +14,7 @@ const Checkout = () => {
   const [totalToPay, setTotalToPay] = useState(0);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const cart = useSelector(getCart);
   const cartPrice = cart.reduce((acc, product) => {
@@ -33,18 +34,8 @@ const Checkout = () => {
     };
 
     dispatch(sendOrderRequest(order));
+    navigate('/order');
   };
-
-  // const handleOrder = () => {
-  //   const order = {
-  //     client: name,
-  //     address: address,
-  //     products: cart,
-  //     totalToPay: totalToPay,
-  //   };
-
-  //   dispatch(addOrder(order));
-  // };
 
   return (
     <div className={styles.checkout}>
@@ -103,9 +94,9 @@ const Checkout = () => {
           </div>
         </form>
         <div className={styles.checkout__form__button} onClick={handleOrder}>
-          <NavLink to="/order">
-            <Button>Send order</Button>
-          </NavLink>
+          {/* <NavLink to="/order"> */}
+          <Button>Send order</Button>
+          {/* </NavLink> */}
         </div>
       </div>
     </div>

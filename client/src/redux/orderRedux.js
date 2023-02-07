@@ -38,7 +38,7 @@ const orderReducer = (statePart = [], action) => {
       return action.payload;
     }
     case CLEAR_ORDER: {
-      return [];
+      return null;
     }
     default:
       return statePart;

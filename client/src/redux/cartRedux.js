@@ -18,6 +18,39 @@ export const deleteFromCart = (payload) => ({
 });
 export const clearCart = (payload) => ({ type: CLEAR_CART, payload });
 
+//thunks
+export const addToCartAndLocalStorage = (payload) => {
+  return (dispatch, getState) => {
+    if (payload) {
+      dispatch(addToCart(payload));
+      const cart = getState().cart;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  };
+};
+
+export const updateCartAndLocalStorage = (payload) => {
+  return (dispatch, getState) => {
+    if (payload) {
+      dispatch(updateCart(payload));
+      const cart = getState().cart;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  };
+};
+
+export const deleteFromCartAndLocalStorage = (payload) => {
+  return (dispatch, getState) => {
+    if (payload) {
+      dispatch(deleteFromCart(payload));
+      const cart = getState().cart;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  };
+};
+
+//reducer
+
 const cartReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_TO_CART: {

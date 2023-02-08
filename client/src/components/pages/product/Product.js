@@ -5,9 +5,11 @@ import { IMGS_URL } from '../../../config';
 import { getMainImage } from '../../../utils/getMainImage';
 import Button from '../../common/Button/Button';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../redux/cartRedux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
+import { getCart } from '../../../redux/cartRedux';
+import { addToCartAndLocalStorage } from '../../../redux/cartRedux';
 
 const Product = () => {
   const { id } = useParams();
@@ -15,14 +17,23 @@ const Product = () => {
   const [isLoading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   const dispatch = useDispatch();
+
+  const cart = useSelector(getCart);
+  useEffect(() => {
+    if (cart.find((item) => item.id === id)) {
+      setAddedToCart(true);
+    }
+  }, [cart]);
 
   const handlePlus = (e) => {
     e.preventDefault();
     if (quantity < 10) {
       setQuantity(quantity + 1);
       setTotalPrice(quantity * price);
+      setAddedToCart(false);
     }
   };
 
@@ -53,7 +64,10 @@ const Product = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(addToCart({ id, name, price, quantity, totalPrice }));
+    dispatch(
+      addToCartAndLocalStorage({ id, name, price, quantity, totalPrice }),
+    );
+    setAddedToCart(true);
   };
 
   return (
@@ -94,7 +108,7 @@ const Product = () => {
           </div>
 
           <div onClick={handleClick}>
-            <Button>Add to cart</Button>
+            <Button> {addedToCart ? 'Added to cart' : 'Add to cart'}</Button>
           </div>
         </div>
       </div>

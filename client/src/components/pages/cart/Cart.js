@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getCart, updateCart } from '../../../redux/cartRedux';
+import { getCart, updateCartAndLocalStorage } from '../../../redux/cartRedux';
 import style from './Cart.module.scss';
 import CartProduct from './CartProduct';
 import Button from '../../common/Button/Button';
@@ -26,7 +26,7 @@ const Cart = () => {
   };
 
   const handleOrder = (product) => {
-    dispatch(updateCart(product));
+    dispatch(updateCartAndLocalStorage(product));
   };
 
   if (cart.length === 0)

@@ -30,18 +30,4 @@ export class OrdersService {
       },
     });
   }
-
-  // public async create(
-  //   orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>,
-  // ): Promise<Order> {
-  //   const { productId, ...otherData } = orderData;
-  //   return await this.prismaService.order.create({
-  //     data: {
-  //       ...otherData,
-  //       product: {
-  //         connect: { id: productId },
-  //       },
-  //     },
-  //   });
-  // }
 }

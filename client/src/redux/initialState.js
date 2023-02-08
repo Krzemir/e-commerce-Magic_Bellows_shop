@@ -1,24 +1,24 @@
-const initialState = {
+let initialState = {
   products: [],
   cart: [
-    {
-      id: 'fd105551-0f0d-4a9f-bc41-c559c8a17256',
-      name: 'Hohner Fun Top 120 Bass',
-      price: 8999,
-      quantity: 2,
-      totalPrice: 17998,
-      comment:
-        'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-    },
-    {
-      id: 'fd105551-0f0d-4a9f-bc41-c559c8a17261',
-      name: 'Cavagnolo 120 Bass B-Griff',
-      price: 2899,
-      quantity: 1,
-      totalPrice: 2899,
-      comment:
-        'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-    },
+    // {
+    //   id: 'fd105551-0f0d-4a9f-bc41-c559c8a17256',
+    //   name: 'Hohner Fun Top 120 Bass',
+    //   price: 8999,
+    //   quantity: 2,
+    //   totalPrice: 17998,
+    //   comment:
+    //     'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    // },
+    // {
+    //   id: 'fd105551-0f0d-4a9f-bc41-c559c8a17261',
+    //   name: 'Cavagnolo 120 Bass B-Griff',
+    //   price: 2899,
+    //   quantity: 1,
+    //   totalPrice: 2899,
+    //   comment:
+    //     'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    // },
   ],
 
   order: null,
@@ -54,5 +54,9 @@ const initialState = {
   // totalToPay: 31095,
   //},
 };
+
+if (localStorage.getItem('cart')) {
+  initialState.cart = JSON.parse(localStorage.getItem('cart'));
+}
 
 export default initialState;

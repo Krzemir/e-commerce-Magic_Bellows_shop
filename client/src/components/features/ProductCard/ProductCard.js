@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, getCart } from '../../../redux/cartRedux';
+import { addToCartAndLocalStorage, getCart } from '../../../redux/cartRedux';
 import { useState } from 'react';
 
 const ProductCard = (props) => {
@@ -28,7 +28,15 @@ const ProductCard = (props) => {
 
   const handleCLick = (e) => {
     e.preventDefault();
-    dispatch(addToCart({ id, name, price, quantity: 1, totalPrice: price }));
+    dispatch(
+      addToCartAndLocalStorage({
+        id,
+        name,
+        price,
+        quantity: 1,
+        totalPrice: price,
+      }),
+    );
     setAddedToCart(true);
   };
 

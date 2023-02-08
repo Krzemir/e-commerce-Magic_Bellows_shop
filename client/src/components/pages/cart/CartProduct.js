@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
-import { deleteFromCart } from '../../../redux/cartRedux';
-import { updateCart } from '../../../redux/cartRedux';
+import { deleteFromCartAndLocalStorage } from '../../../redux/cartRedux';
 
 const CartProduct = ({ props }) => {
   const { name, price, quantity, id } = props[0];
@@ -57,7 +56,7 @@ const CartProduct = ({ props }) => {
 
   const removeProduct = (e, id) => {
     e.preventDefault();
-    dispatch(deleteFromCart(id));
+    dispatch(deleteFromCartAndLocalStorage(id));
   };
 
   return (

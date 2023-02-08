@@ -49,6 +49,13 @@ export const deleteFromCartAndLocalStorage = (payload) => {
   };
 };
 
+export const clearCartAndLocalStorage = (payload) => {
+  return (dispatch) => {
+    dispatch(clearCart(payload));
+    localStorage.removeItem('cart');
+  };
+};
+
 //reducer
 
 const cartReducer = (statePart = [], action) => {

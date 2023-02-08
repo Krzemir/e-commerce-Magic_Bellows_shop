@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Button from '../../common/Button/Button';
 
 import styles from './Checkout.module.scss';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const [name, setName] = useState('');

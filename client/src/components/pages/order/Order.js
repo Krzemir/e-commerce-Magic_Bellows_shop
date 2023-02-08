@@ -1,10 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrder, clearOrder } from '../../../redux/orderRedux';
-import { clearCart } from '../../../redux/cartRedux';
+import { clearCartAndLocalStorage } from '../../../redux/cartRedux';
 import styles from './Order.module.scss';
 import Button from '../../common/Button/Button';
 import { NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 const Order = () => {
   const order = useSelector(getOrder);
@@ -12,8 +11,8 @@ const Order = () => {
   const dispatch = useDispatch();
 
   const resetOrderCart = () => {
-    dispatch(clearCart());
     dispatch(clearOrder());
+    dispatch(clearCartAndLocalStorage());
   };
 
   if (order == null) return null;

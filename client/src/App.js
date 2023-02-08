@@ -7,14 +7,12 @@ import OrderDetails from './components/pages/order/Order';
 import NotFound from './components/pages/not-found/NotFound';
 import Container from './components/layout/container/Container';
 import NavBar from './components/layout/navbar/NavBar';
-import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 
 function App() {
   return (
     <main>
       <NavBar />
-      {/* <Header /> */}
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />

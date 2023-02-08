@@ -8,7 +8,6 @@ const createActionName = (name) => `app/order/${name}`;
 
 const ADD_ORDER = createActionName('ADD_ORDER');
 const CLEAR_ORDER = createActionName('CLEAR_ORDER');
-const SEND_ORDER_REQUEST = createActionName('SEND_ORDER_REQUEST');
 
 //action creators
 

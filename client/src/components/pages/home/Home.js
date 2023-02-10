@@ -2,7 +2,6 @@ import { getProducts } from '../../../redux/productRedux';
 import { fetchProducts } from '../../../redux/productRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import ProductCard from '../../features/ProductCard/ProductCard';
 import ProductsList from '../../features/ProductsList/ProductsList';
 import Header from '../../layout/Header/Header';
 

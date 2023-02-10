@@ -10,6 +10,7 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { getCart } from '../../../redux/cartRedux';
 import { addToCartAndLocalStorage } from '../../../redux/cartRedux';
+import { API_URL } from '../../../config';
 
 const Product = () => {
   const { id } = useParams();
@@ -46,7 +47,7 @@ const Product = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/products/${id}`)
+    fetch(API_URL + '/api/products/' + id)
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);

@@ -12,6 +12,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   app.use('/uploads', express.static(join(process.cwd(), 'uploads')));
+  app.use('/', express.static(join(process.cwd(), 'client', 'build'))); // <-- Add this istead of ServeStaticModule in AppModule becouse it did't work
 
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);

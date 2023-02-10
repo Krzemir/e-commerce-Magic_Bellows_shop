@@ -14,7 +14,7 @@ export const loadProducts = (payload) => ({ type: LOAD_PRODUCTS, payload });
 //API requests
 export const fetchProducts = () => {
   return (dispatch) => {
-    fetch(API_URL + '/api/products')
+    fetch(API_URL + '/api/products/')
       .then((res) => res.json())
       .then((products) => dispatch(loadProducts(products)));
   };

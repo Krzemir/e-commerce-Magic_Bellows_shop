@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
 import { deleteFromCartAndLocalStorage } from '../../../redux/cartRedux';
+import PropTypes from 'prop-types';
 
 const CartProduct = ({ props }) => {
   const { name, price, quantity, id } = props[0];
@@ -105,6 +106,10 @@ const CartProduct = ({ props }) => {
       </div>
     </div>
   );
+};
+
+CartProduct.propTypes = {
+  props: PropTypes.array,
 };
 
 export default CartProduct;

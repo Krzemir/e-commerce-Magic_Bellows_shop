@@ -4,9 +4,9 @@ import { sendOrderRequest } from '../../../redux/orderRedux';
 import { getCart } from '../../../redux/cartRedux';
 import { useEffect, useState } from 'react';
 import Button from '../../common/Button/Button';
-
 import styles from './Checkout.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const Checkout = () => {
   const [name, setName] = useState('');
@@ -15,6 +15,11 @@ const Checkout = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const cart = useSelector(getCart);
   const cartPrice = cart.reduce((acc, product) => {
@@ -69,13 +74,22 @@ const Checkout = () => {
         <h3>Your data:</h3>
       </div>
       <div className={styles.container}>
-        <form className={styles.checkout__form}>
+        <form
+          className={styles.checkout__form}
+          onSubmit={handleSubmit(handleOrder)}
+        >
           <div>
             <label htmlFor="name">Name:</label>
+            {errors.name && (
+              <span className={styles.checkout_error}>
+                This field is required
+              </span>
+            )}
             <input
               className={styles.checkout__form__input}
               type="text"
               id="name"
+              {...register('name', { required: true })}
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -83,21 +97,25 @@ const Checkout = () => {
           </div>
           <div>
             <label htmlFor="address">Address:</label>
+            {errors.address && (
+              <span className={styles.checkout_error}>
+                This field is required
+              </span>
+            )}
             <input
               className={styles.checkout__form__input}
               type="text"
               id="address"
+              {...register('address', { required: true })}
               onChange={(e) => {
                 setAddress(e.target.value);
               }}
             />
           </div>
+          <div className={styles.checkout__form__button}>
+            <Button type="submit">Send order</Button>
+          </div>
         </form>
-        <div className={styles.checkout__form__button} onClick={handleOrder}>
-          {/* <NavLink to="/order"> */}
-          <Button>Send order</Button>
-          {/* </NavLink> */}
-        </div>
       </div>
     </div>
   );

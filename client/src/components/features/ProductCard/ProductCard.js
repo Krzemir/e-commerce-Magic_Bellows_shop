@@ -10,6 +10,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCartAndLocalStorage, getCart } from '../../../redux/cartRedux';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const ProductCard = (props) => {
   const { id, name, price, shortDescription, images } = props;
@@ -72,6 +73,14 @@ const ProductCard = (props) => {
       </div>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  shortDescription: PropTypes.string,
+  images: PropTypes.array,
 };
 
 export default ProductCard;

@@ -59,6 +59,15 @@
   margin-top: 10px;
   text-align: start;
 }
+.checkout__form__button {
+  text-align: center;
+}
+
+.checkout_error {
+  color: $color-light-red;
+  font-size: $base-size * 1.5;
+  margin-left: 10px;
+}
 
 .checkout__form__input {
   display: flex;

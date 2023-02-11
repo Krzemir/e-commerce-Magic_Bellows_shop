@@ -1,6 +1,8 @@
 <h3>E-commerce project: Unique accordions shop.</h3>
 
 Deployed on: https://megic-bellows-ecommerce-store.onrender.com/
+<p>(very limited server hosting performance)</p>
+
 
 <p>App in development</p>
 <p>v1: </p>
@@ -12,6 +14,7 @@ Deployed on: https://megic-bellows-ecommerce-store.onrender.com/
 
 <p>next steps</p>
 <ul>
+<li> change hosting ;) </li>
   <li> creating a customer panel, signing in and login feature </li>
   <li> cms panel for the store administrator </li>
 </ul>

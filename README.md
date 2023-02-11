@@ -13,7 +13,7 @@ Deployed on: https://megic-bellows-ecommerce-store.onrender.com/
 <p>next steps</p>
 <ul>
   <li> creating a customer panel, signing in and login feature </li>
-  <li> acms panel for the store administrator </li>
+  <li> cms panel for the store administrator </li>
 </ul>
 
 

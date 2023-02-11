@@ -1,3 +1,26 @@
+<h3>E-commerce project: Unique accordions shop.</h3>
+
+Deployed on: https://megic-bellows-ecommerce-store.onrender.com/
+
+<p>App in development</p>
+<p>v1: </p>
+<ul>
+  <li> presentation of all products and details of each of them </li>
+  <li> adding to the basket, modifying its content, adding comments to purchased products </li>
+  <li> sending an order with customer details </li>
+</ul>
+
+<p>next steps</p>
+<ul>
+  <li> creating a customer panel, signing in and login feature </li>
+  <li> acms panel for the store administrator </li>
+</ul>
+
+
+<h4>Stack:</h4>
+<p>NodeJs, NestJs, Prisma, MySQL, React, React-Redux, Sass</p>
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>

@@ -31,4 +31,18 @@ screenshots:
 
 -------------------------------------------------
 
-<img src="https://i.postimg.cc/Xq7fbsbZ/screencapture-megic-bellows-ecommerce-store-onrender-products-fd105551-0f0d-4a9f-bc41-c559c8a17261-2.png" style="width: 70%"/>
+<img src="https://i.postimg.cc/7PmWHnPS/screencapture-megic-bellows-ecommerce-store-onrender-products-fd105551-0f0d-4a9f-bc41-c559c8a17260-2.png" style="width: 70%"/>
+
+-------------------------------------------------
+
+## Installation
+$ npm install
+## Running the app
+### development
+$ npm run start
+
+### watch mode
+$ npm run start:dev
+
+### production mode
+$ npm run start:prod

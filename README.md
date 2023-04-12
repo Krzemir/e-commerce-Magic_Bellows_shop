@@ -27,11 +27,11 @@ Deployed on: https://megic-bellows-ecommerce-store.onrender.com/
 
 screenshots:
 
-<img src="https://i.postimg.cc/mkXQ27Lm/screencapture-megic-bellows-ecommerce-store-onrender-2023-02-20-21-01-37.png" style="width: 70%"/>
+<img src="https://lh3.googleusercontent.com/pw/AJFCJaX770S-7BOEWFNJHUKSPLyDPRSmFFOi54h2G61y0h__PDQCXok1Xco4odKUUurxveHAt7N_OHWpT2d71VawLELLSrfjVd93jWEDh8T2IVN8lGUz0w5l8QlzlQZ6KKI0_H52XtVmTb_G4QueOt7V0Ao=w1003-h1284-s-no?authuser=1" style="width: 70%"/>
 
 -------------------------------------------------
 
-<img src="https://i.postimg.cc/7PmWHnPS/screencapture-megic-bellows-ecommerce-store-onrender-products-fd105551-0f0d-4a9f-bc41-c559c8a17260-2.png" style="width: 70%"/>
+<img src="https://lh3.googleusercontent.com/pw/AJFCJaX-IAdbWKjyEZ0IEXwcTyP6Hnb2h8Lau7U4Gj39uuj9vDz07ireXfNix_o3iHcEgDfPku59QWss1jUpYMqrROm19UDh85iVif0G89jqKd2MxrSsYmqWJ1jtECZM8UbvHE75FElOAtcWTfOQKwFOGgo=w1143-h907-s-no?authuser=1" style="width: 70%"/>
 
 -------------------------------------------------
 

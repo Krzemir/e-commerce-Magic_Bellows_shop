@@ -2,7 +2,7 @@
 
 <p>An application of an online store offering unique instruments. Whole project was made entirely by myself, both in terms of design and functionality</p>
 
-Deployed on: https://megic-bellows-ecommerce-store.onrender.com/
+Deployed on: https://magic-bellows-online-shop.onrender.com/
 <p>(very limited server hosting performance, please be patient :) )</p>
 
 
